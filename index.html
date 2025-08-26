@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infoied Private Limited - Leadership Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a3a6c;
+            --secondary: #2c5aa0;
+            --accent: #ff6b00;
+            --light: #f5f7fa;
+            --dark: #2c3e50;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --card-bg: #ffffff;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .company-name h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .company-name p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            z-index: 100;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+            padding: 10px 0;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(26, 58, 108, 0.05);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Vision/Mission Banner */
+        .vision-banner {
+            background: linear-gradient(to right, #1a3a6c, #2c5aa0);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page Title */
+        .page-header {
+            max-width: 1200px;
+            margin: 30px auto 20px;
+            padding: 0 20px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-header h1:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .page-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Leadership Team Section */
+        .leadership-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 30px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            background-color: #e9ecef;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .card-body {
+            padding: 70px 25px 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .member-position {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .member-bio {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f0f4f8;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Career Section */
+        .career-section {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .job-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .job-category {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .job-openings {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .job-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .job-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-links a i {
+            color: var(--accent);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 1.5rem 1rem;
+            }
+            
+            .user-info {
+                margin-top: 10px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .career-section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid, .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation for the banner */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .vision-content {
+            display: flex;
+            animation: slide 20s infinite linear;
+            white-space: nowrap;
+        }
+        
+        .vision-item {
+            flex: 0 0 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">I</div>
+            <div class="company-name">
+                <h1>Infoied Private Limited</h1>
+                <p>Transforming Education Through Technology</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <div class="dropdown">
+                <a href="#">Service <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Computer Science</a>
+                    <a href="#">Data Structures</a>
+                    <a href="#">Algorithms</a>
+                    <a href="#">Web Development</a>
+                    <a href="#">Mobile App Development</a>
+                    <a href="#">Artificial Intelligence</a>
+                    <a href="#">Machine Learning</a>
+                    <a href="#">Cloud Computing</a>
+                    <a href="#">Cybersecurity</a>
+                    <a href="#">Database Management</a>
+                </div>
+            </div>
+            <a href="#">Appointment</a>
+            <div class="dropdown">
+                <a href="#">Careers <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Full Stack Developer</a>
+                    <a href="#">Product Manager</a>
+                    <a href="#">Enterprise Sales Exec</a>
+                    <a href="#">UI/UX Designer</a>
+                    <a href="#">Data Scientist</a>
+                    <a href="#">DevOps Engineer</a>
+                    <a href="#">Quality Assurance</a>
+                    <a href="#">Technical Support</a>
+                    <a href="#">Business Analyst</a>
+                    <a href="#">View All Positions</a>
+                </div>
+            </div>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">CS</div>
+            <div>
+                <h3>Chandan Shukla</h3>
+                <p>Founder & CEO</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="vision-banner">
+        <div class="vision-content">
+            <div class="vision-item">Our Vision: To revolutionize education through innovative technology solutions</div>
+            <div class="vision-item">Our Mission: To make quality education accessible to everyone, everywhere</div>
+            <div class="vision-item">Our Goal: To empower 1 million learners by 2030</div>
+            <div class="vision-item">Our Commitment: Excellence in educational technology and services</div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h1>Leadership Team</h1>
+        <p>Meet the visionary leaders driving Infoied's mission to transform education through technology. Our leadership team brings decades of experience and a shared passion for innovation in the EdTech space.</p>
+    </div>
+
+    <div class="leadership-section">
+        <div class="section-title">
+            <h2>Our Core Leadership</h2>
+            <p>Guiding our company with expertise, vision, and dedication</p>
+        </div>
+        
+        <div class="team-grid">
+            <!-- CEO -->
+            <div class="team-card">
+                <div class="card-header">
+                    <div class="member-avatar">CS</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="member-name">Chandan Shukla</h3>
+                    <div class="member-position">Founder & CEO</div>
+                    <p class="member-bio">With over 15 years of experience in education technology, Chandan leads Infoied with a vision to transform learning experiences through innovative solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Co-Founder -->
+            <div class="team-card">
+                <div class="card-header">
+                    <div class="member-avatar">HK</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="member-name">Harsh Kumar Singh</h3>
+                    <div class="member-position">Co-Founder</div>
+                    <p class="member-bio">Technical expert with specialization in scalable EdTech solutions. Harsh brings a passion for creating impactful educational experiences.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AVP -->
+            <div class="team-card">
+                <div class="card-header">
+                    <div class="member-avatar">AK</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="member-name">Abhishek Kumar Singh</h3>
+                    <div class="member-position">AVP</div>
+                    <p class="member-bio">Oversees business operations and client relationships, ensuring seamless service delivery and customer satisfaction.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Head HR -->
+            <div class="team-card">
+                <div class="card-header">
+                    <div class="member-avatar">PS</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="member-name">Priya Sharma</h3>
+                    <div class="member-position">Head HR</div>
+                    <p class="member-bio">Leads talent acquisition and development, fostering a culture of innovation and excellence at Infoied.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="career-section">
+        <div class="section-title">
+            <h2>Career Opportunities</h2>
+            <p>Join our team of innovators and help shape the future of education technology</p>
+        </div>
+        
+        <div class="jobs-grid">
+            <div class="job-card">
+                <div class="job-category">Senior Dev</div>
+                <h3 class="job-title">Full Stack Developer</h3>
+                <div class="job-openings">5 positions open</div>
+                <p>Develop cutting-edge educational platforms using modern technologies.</p>
+                <a href="#" class="job-btn">Apply Now</a>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-category">Product</div>
+                <h3 class="job-title">Product Manager</h3>
+                <div class="job-openings">2 positions open</div>
+                <p>Lead product development for our innovative EdTech solutions.</p>
+                <a href="#" class="job-btn">Apply Now</a>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-category">Sales</div>
+                <h3 class="job-title">Enterprise Sales Exec</h3>
+                <div class="job-openings">3 positions open</div>
+                <p>Drive adoption of our solutions in educational institutions.</p>
+                <a href="#" class="job-btn">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Infoied</h3>
+                <p>Infoied Private Limited is a leading EdTech company transforming education through innovative technology solutions since 2015.</p>
+                <div class="social-links" style="margin-top: 20px; justify-content: flex-start;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Kheda Kalan Industrial Area, New Delhi</p>
+                    <p><i class="fas fa-phone"></i> +91 9456073005</p>
+                    <p><i class="fas fa-envelope"></i> info@infoied.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 Infoied Private Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for the vision banner
+        let currentVision = 0;
+        const visionItems = document.querySelectorAll('.vision-item');
+        const totalVisions = visionItems.length;
+        
+        function rotateVision() {
+            visionItems.forEach(item => item.style.display = 'none');
+            visionItems[currentVision].style.display = 'block';
+            
+            currentVision = (currentVision + 1) % totalVisions;
+            
+            setTimeout(rotateVision, 5000);
+        }
+        
+        // Initialize
+        visionItems.forEach((item, index) => {
+            if(index !== 0) item.style.display = 'none';
+        });
+        
+        setTimeout(rotateVision, 5000);
+        
+        // Add hover effect to team cards
+        const teamCards = document.querySelectorAll('.team-card');
+        teamCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
